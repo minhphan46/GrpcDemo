@@ -1,0 +1,28 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Catalog.Grpc";
+
+package catalog;
+
+// Định nghĩa service Catalog
+service CatalogProtoService {
+  // RPC để lấy thông tin sản phẩm dựa trên ProductId
+  rpc GetProductById (GetProductByIdRequest) returns (ProductModel);
+}
+
+// Message yêu cầu lấy thông tin sản phẩm
+message GetProductByIdRequest {
+  string product_id = 1;
+}
+
+// Message định nghĩa model Product
+message ProductModel {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  int32 price = 4;
+  int32 stock_quantity = 5;
+  string category = 6;
+  string image_url = 7;
+}
+
