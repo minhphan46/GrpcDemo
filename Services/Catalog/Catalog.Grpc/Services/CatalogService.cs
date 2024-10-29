@@ -1,7 +1,6 @@
 using Catalog.API.Data;
 using Grpc.Core;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Catalog.Grpc.Services
 {
@@ -34,7 +33,7 @@ namespace Catalog.Grpc.Services
 
             _logger.LogInformation("Product is retrieved: ", product.Id, product.Name, product.StockQuantity);
 
-            var couponModel = new ProductModel()
+            var productModel = new ProductModel()
             {
                 Id = product.Id.ToString(),
                 Name = product.Name,
@@ -45,8 +44,7 @@ namespace Catalog.Grpc.Services
                 ImageUrl = product.ImageUrl,
             };
 
-            return couponModel;
+            return productModel;
         }
-
     }
 }
